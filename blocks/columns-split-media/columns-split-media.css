@@ -5,6 +5,9 @@
 
 /* full bleed: cancel the section inline padding (source tile is 100% wide, max 1440px) */
 .columns-split-media {
+  /* icon-font icons are masks colored by --icon-color (see styles.css); source: red */
+  --icon-color: var(--brand-red);
+
   margin-inline: calc(-1 * var(--section-padding-inline));
   color: var(--brand-black);
 }

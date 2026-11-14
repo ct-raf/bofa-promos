@@ -1,0 +1,38 @@
+{
+  "variantName": "hero-offer",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Offer masthead with left-aligned eyebrow, heading, copy and CTA over a full-width background image (often an animated GIF carrying the offer artwork on the right)",
+    "layout": "Text column left over a full-bleed background image; image is cropped from the right edge so the artwork stays visible",
+    "notes": "Background image is kept as authored (not re-encoded) to preserve GIF animation and loaded eagerly as the LCP image."
+  },
+  "contentPattern": {
+    "structure": "row 1: background image only; row 2: eyebrow paragraph, H1, intro paragraph (footnote sup allowed), CTA link. Either row may be omitted",
+    "rows": [
+      [
+        "background image"
+      ],
+      [
+        "eyebrow paragraph, H1, body copy, CTA link"
+      ]
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [
+    "hero-offer"
+  ],
+  "usage": {
+    "description": "Top-of-page masthead for promotional offer pages.",
+    "pagesUsing": [
+      "/en/offers/chooseyourchecking500tiered",
+      "/deposits/debitcard/overview",
+      "/deposits/balanceconnect",
+      "/deposits/growyoursavings",
+      "/deposits/growyoursavings/cd-ira"
+    ],
+    "reuseCount": 4,
+    "lastUsed": "2026-11-14"
+  },
+  "reuseGuidance": "Use for any offer masthead with text over a background image. For a centered or text-over-photo hero without an offer layout, use the base hero."
+}

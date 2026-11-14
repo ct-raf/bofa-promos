@@ -1,0 +1,36 @@
+{
+  "variantName": "table-bordered",
+  "baseBlock": "table",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Plain gridded table inside legal/disclosure copy",
+    "layout": "Narrow (about 410px) centered table with a full 1px cell grid, no fills, bold header cells",
+    "notes": "Inherits the surrounding section's small text size."
+  },
+  "contentPattern": {
+    "structure": "row 1: column headers; following rows: data rows",
+    "rows": [
+      [
+        "header 1",
+        "header 2"
+      ],
+      [
+        "value",
+        "value"
+      ]
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [
+    "table-bordered"
+  ],
+  "usage": {
+    "description": "Bonus charts and other reference tables within disclosures.",
+    "pagesUsing": [
+      "/deposits/growyoursavings/cd-ira"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-14"
+  },
+  "reuseGuidance": "Use for unstyled reference tables with a full border grid. For highlighted tier tables in body content use table-bonus."
+}

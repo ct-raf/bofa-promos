@@ -1,0 +1,45 @@
+/* source: .disclosures table.center (410px, 1px solid black grid, Connections 14px/19.6px) */
+.table-bordered {
+  overflow-x: auto;
+}
+
+.table-bordered table {
+  width: 410px;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 19.6px;
+  color: #000;
+}
+
+.table-bordered th,
+.table-bordered td {
+  padding: 0 1px;
+  border: 1px solid #000;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-bordered th {
+  font-weight: 700;
+}
+
+/* beats the light-grey section's 12px paragraph margin */
+main .table-bordered.block :is(th, td) p {
+  margin: 0;
+}
+
+/* single-row use (e.g. "Are Not FDIC Insured | Are Not Bank Guaranteed | May Lose Value"):
+   a full-width boxed row of bold cells */
+.table-bordered table:not(:has(tbody tr)) {
+  width: 100%;
+}
+
+.table-bordered table:not(:has(tbody tr)) th {
+  padding: 8px;
+}

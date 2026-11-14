@@ -1,0 +1,33 @@
+{
+  "variantName": "columns-getapp",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Get-the-app panel: heading, device picker and Get the app button over consent copy, beside a QR-code/phone image",
+    "layout": "Two halves side by side from 900px (image cell may sit on either side); stacked below with the image on top. Text half is centered: H2, a device select and a button that is disabled until a device is chosen, then italic consent copy and a Terms and Conditions link",
+    "notes": "All picker strings come from the authored content, so the Spanish page works unchanged. The source's SMS phone-number step is intentionally not implemented; choosing a device and pressing the button opens that device's app link. Select chevron, red pill button and colors are design-pass details. The red separator rule above the section is a section style, not part of the block."
+  },
+  "contentPattern": {
+    "structure": "one row, two cells. Text cell: H2; optional placeholder paragraph (e.g. 'Select your device'); a bulleted list of device links (iPhone, Android) whose text is the option label and href the app link (a list item without a link may also serve as the placeholder); a paragraph with the button label (e.g. bold 'Get the app'); italic consent paragraph; Terms and Conditions link. Image cell: one picture (QR code and phone). Without the button-label paragraph the device links render as a plain link list",
+    "rows": [
+      [
+        "H2, placeholder paragraph, list of device links, button label paragraph, consent copy, Terms link",
+        "QR code / phone picture"
+      ]
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [
+    "columns-getapp"
+  ],
+  "usage": {
+    "description": "Mobile app download panel at the end of debit card promotion pages.",
+    "pagesUsing": [
+      "/deposits/debitcard/overview",
+      "/deposits/es/debitcard/overview"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-14"
+  },
+  "reuseGuidance": "Use for an app-download panel with a device picker beside a QR image. For a plain text-plus-photo promo card use columns-media-card; for simple side-by-side content use columns."
+}

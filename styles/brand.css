@@ -1,0 +1,87 @@
+/*
+ * Bank of America promotions — brand tokens.
+ * Values measured from https://promotions.bankofamerica.com (computed styles, 1440px and 390px).
+ */
+:root {
+  /* brand palette */
+  --brand-red: #e31837;
+  --brand-red-hover: #c41230;
+  --brand-dark-red: #ae132a;
+  --brand-navy: #012169;
+  --brand-blue: #0053c2;
+  --brand-light-blue: #f3f6ff;
+  --brand-light-grey: #ededed;
+  --brand-pale-grey: #f5f5f5;
+  --brand-black: #000;
+  --brand-white: #fff;
+
+  /* colors */
+  --background-color: var(--brand-white);
+  --light-color: var(--brand-pale-grey);
+  --dark-color: var(--brand-navy);
+  --text-color: var(--brand-black);
+  --link-color: var(--brand-blue);
+  --link-hover-color: var(--brand-navy);
+
+  /* fonts */
+  --body-font-family: connections, connections-fallback, arial, sans-serif;
+  --heading-font-family: connections, connections-light-fallback, arial, sans-serif;
+  --text-font-family: connections-text, connections, connections-fallback, arial, sans-serif;
+
+  /* body sizes (mobile) */
+  --body-font-size-l: 20px;
+  --body-font-size-m: 18px;
+  --body-font-size-s: 16px;
+  --body-font-size-xs: 14px;
+  --body-line-height: 1.3;
+
+  /* heading sizes (mobile) */
+  --heading-font-size-xxl: 40px;
+  --heading-font-size-xl: 40px;
+  --heading-font-size-l: 28px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-xs: 18px;
+  --heading-font-weight: 300;
+  --heading-line-height: 1.2;
+
+  /* layout */
+  --content-max-width: 1440px;
+  --section-padding-block: 48px;
+  --section-padding-inline: 5vw;
+  --nav-height: 64px;
+
+  /* buttons */
+  --button-height: 48px;
+  --button-radius: 35px;
+  --button-font-size: 21px;
+  --button-min-width: 0;
+}
+
+@media (width >= 900px) {
+  :root {
+    /* body sizes (desktop) */
+    --body-font-size-l: 24px;
+    --body-font-size-m: 20px;
+    --body-font-size-s: 16px;
+    --body-font-size-xs: 14px;
+    --body-line-height: 1.35;
+
+    /* heading sizes (desktop) */
+    --heading-font-size-xxl: 56px;
+    --heading-font-size-xl: 48px;
+    --heading-font-size-l: 32px;
+    --heading-font-size-m: 24px;
+    --heading-font-size-s: 20px;
+    --heading-font-size-xs: 18px;
+    --heading-line-height: 1.17;
+
+    /* layout */
+    --section-padding-inline: 72px;
+
+    /* buttons */
+    --button-height: 64px;
+    --button-font-size: 24px;
+    --button-min-width: 260px;
+  }
+}

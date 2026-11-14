@@ -1,0 +1,204 @@
+/* cards-product — source: .product-details__productList (promotions.bankofamerica.com) */
+
+/* mobile: horizontally scrollable row of cards (source is a swipe carousel) */
+.cards-product > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-columns: min(340px, calc(100% - 20px));
+  gap: 0 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+}
+
+/* subgrid rows (image, header, body) keep headers the same height across cards */
+.cards-product > ul > li {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  min-width: 0;
+  scroll-snap-align: start;
+  border: 1px solid #d5d5d5;
+  background-color: var(--brand-white);
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.cards-product .cards-product-card-image {
+  grid-row: 1;
+  line-height: 0;
+}
+
+.cards-product .cards-product-card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.cards-product sup {
+  font-size: 12px;
+}
+
+/* footnote references are not underlined */
+.cards-product a:any-link:has(> sup:only-child) {
+  text-decoration: none;
+}
+
+/* header: grey panel with title, eyebrow, intro and the primary CTA */
+.cards-product .cards-product-card-header {
+  display: flex;
+  flex-direction: column;
+  grid-row: 2;
+  padding: 32px 16px 16px;
+  background-color: var(--brand-light-grey);
+}
+
+/* header-only cards (e.g. CD options) fill the card */
+.cards-product > ul > li > .cards-product-card-header:last-child {
+  grid-row: 2 / span 2;
+}
+
+.cards-product .cards-product-card-header > *,
+.cards-product .cards-product-card-body > * {
+  margin: 0 0 16px;
+}
+
+.cards-product .cards-product-card-header > :last-child,
+.cards-product .cards-product-card-body > :last-child {
+  margin-bottom: 0;
+}
+
+.cards-product .cards-product-card-header > h3 {
+  margin-bottom: 24px;
+  color: var(--brand-red-hover);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+}
+
+/* eyebrow: bold small caps right below the title */
+.cards-product .cards-product-card-header > h3 + p > strong:only-child {
+  color: var(--brand-navy);
+  font-size: 16px;
+  font-weight: 700;
+
+  /* keep the paragraph's line box (source p 24.3px / 27px) */
+  line-height: 24.3px;
+}
+
+/* lists inside a card are nested in the card <li>: keep solid bullets */
+.cards-product .cards-product-card-header ul,
+.cards-product .cards-product-card-body ul {
+  list-style: disc;
+}
+
+/* CTA: last link-only paragraph of the header, pinned to the bottom */
+.cards-product .cards-product-card-header > p:last-child:has(> a:only-child) {
+  margin-top: auto;
+  padding-top: 16px;
+  text-align: center;
+}
+
+.cards-product .cards-product-card-header > p:last-child > a:only-child:any-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 236px;
+  min-height: 47px;
+  padding: 0 16px;
+  border-radius: 35px;
+  background-color: var(--brand-red);
+  color: var(--brand-white);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+}
+
+.cards-product .cards-product-card-header > p:last-child > a:only-child:is(:hover, :focus-visible) {
+  background-color: var(--brand-red-hover);
+  color: var(--brand-white);
+}
+
+/* header-only cards (CD options) use the navy pill */
+.cards-product > ul > li > .cards-product-card-header:last-child > p:last-child > a:only-child:any-link {
+  background-color: var(--brand-navy);
+}
+
+.cards-product > ul > li > .cards-product-card-header:last-child > p:last-child > a:only-child:is(:hover, :focus-visible) {
+  background-color: #001543;
+}
+
+/* body: fee, Learn more link and feature lines separated by rules */
+.cards-product .cards-product-card-body {
+  grid-row: 3;
+  padding: 0 16px 16px;
+}
+
+.cards-product .cards-product-card-body > .cards-product-feature {
+  margin: 16px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid #bababa;
+}
+
+@media (width >= 900px) {
+  .cards-product > ul {
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    grid-template-columns: repeat(auto-fit, minmax(257px, 1fr));
+    grid-auto-columns: auto;
+    gap: 0 22px;
+    margin-bottom: -22px;
+    overflow-x: visible;
+  }
+
+  /* row-gap stays 0 for the subgrid; wrapped card rows are spaced by margin */
+  .cards-product > ul > li {
+    margin-bottom: 22px;
+    font-size: 20px;
+  }
+
+  .cards-product .cards-product-card-header {
+    padding: 40px 32px 20px;
+  }
+
+  .cards-product .cards-product-card-body {
+    padding: 0 32px 20px;
+  }
+
+  .cards-product .cards-product-card-header > h3 {
+    font-size: 32px;
+    font-weight: 300;
+  }
+
+  /* source equalises title heights (two lines) so eyebrows line up */
+  .cards-product > ul > li:has(> .cards-product-card-body) .cards-product-card-header > h3 {
+    min-height: 2lh;
+  }
+
+  .cards-product .cards-product-card-header > h3 + p > strong:only-child {
+    line-height: 27px;
+  }
+
+  .cards-product .cards-product-card-header > p:last-child:has(> a:only-child) {
+    padding-top: 24px;
+  }
+
+  .cards-product .cards-product-card-header > p:last-child > a:only-child:any-link {
+    max-width: 300px;
+    min-height: 64px;
+    font-size: 24px;
+  }
+}

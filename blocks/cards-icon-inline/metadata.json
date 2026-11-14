@@ -1,0 +1,27 @@
+{
+  "variantName": "cards-icon-inline",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Row of short cross-sell pointers, each a small icon beside a sentence with an inline link",
+    "layout": "Items in a row on desktop (auto-fit grid), stacked below 900px; each item is a small icon to the LEFT of short copy. No card chrome",
+    "notes": "Band color and centered intro heading come from the section (e.g. pale-grey, centered style) and default content above the block."
+  },
+  "contentPattern": {
+    "structure": "one row per item: media cell (:icon: or small image) + body cell (paragraph with inline link)",
+    "rows": [
+      [":finance-check:", "[Checking accounts] that help keep up with your life."],
+      [":finance-savings:", "A [savings account] that can help you reach your goals."],
+      [":finance-card:", "Find the right [credit card] that suits your needs."]
+    ]
+  },
+  "options": [],
+  "memberVariantIds": ["cards-icon-inline"],
+  "usage": {
+    "description": "Related-product pointers (checking, savings, credit card) at the end of deposit promo pages.",
+    "pagesUsing": ["/deposits/balanceconnect"],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-14"
+  },
+  "reuseGuidance": "Use when each item is a small icon to the left of one or two lines of linked copy. For media above centered copy use cards-tile; for a vertical numbered list use cards-steps."
+}

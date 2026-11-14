@@ -1,0 +1,20 @@
+{
+  "variantName": "cards-steps",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Vertical list of qualification steps, each a small icon beside its copy",
+    "layout": "One step per row; fixed-width icon column (numbered circle or checkmark image) left of the step copy",
+    "notes": "The list may be split into several block instances on one page (e.g. steps 1-2, then a table block, then a final step)."
+  },
+  "contentPattern": {
+    "structure": "one row per step: cell 1 icon image (or :icon:), cell 2 step copy (paragraphs, links, italic note). The icon cell may be omitted",
+    "rows": [
+      ["icon image", "step copy"]
+    ]
+  },
+  "options": [],
+  "memberVariantIds": ["cards-steps"],
+  "usage": "How-to-qualify or how-it-works step lists on offer pages.",
+  "reuseGuidance": "Use for icon-beside-text step or checklist rows. For grids of cards use cards or cards-product."
+}

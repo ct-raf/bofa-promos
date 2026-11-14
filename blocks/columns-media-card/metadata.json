@@ -1,0 +1,33 @@
+{
+  "variantName": "columns-media-card",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Promotional card pairing copy with a lifestyle photo",
+    "layout": "Rounded, shadowed card; text column (logo image, heading, copy, link) beside a photo that fills the card height and bleeds to its edge. Photo stacks on top below 900px",
+    "notes": "Card fill comes from the section style (e.g. light-blue) or the design pass; the photo column is detected as a picture-only cell, so it may sit on either side."
+  },
+  "contentPattern": {
+    "structure": "one row, two cells: text cell (optional logo image, H2, paragraphs, link) and a picture-only cell",
+    "rows": [
+      [
+        "logo image, H2, paragraphs, Learn more link",
+        "photo"
+      ]
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [
+    "columns-media-card"
+  ],
+  "usage": {
+    "description": "Cross-sell or membership promo cards within an offer page.",
+    "pagesUsing": [
+      "/en/offers/chooseyourchecking500tiered",
+      "/deposits/debitcard/overview"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-14"
+  },
+  "reuseGuidance": "Use for a single text-plus-photo promo card. For plain side-by-side columns without card chrome use the base columns block."
+}

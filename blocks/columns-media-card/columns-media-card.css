@@ -1,0 +1,272 @@
+/* columns-media-card: text column + photo column card.
+ * Looks (class added by JS from the heading level):
+ *  - .columns-media-card-filled   (H2 promo card, e.g. BofA Rewards): light-blue, shadowed
+ *  - .columns-media-card-outlined (H3 product card, e.g. debit card "preferred cards"):
+ *    white, grey outline, pill CTA
+ * Mobile first; desktop layout at 900px. Values from migration-work/design-source captures.
+ */
+
+/* ---------- shared card shell ---------- */
+.columns-media-card {
+  overflow: hidden;
+  border-radius: 32px;
+  color: var(--text-color);
+}
+
+.columns-media-card > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-media-card > div + div {
+  margin-top: 24px;
+}
+
+.columns-media-card .columns-media-card-img-col {
+  position: relative;
+  order: -1;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.columns-media-card .columns-media-card-img-col picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.columns-media-card .columns-media-card-img-col img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.columns-media-card .columns-media-card-text-col > :first-child {
+  margin-top: 0;
+}
+
+.columns-media-card.block .columns-media-card-text-col > :last-child {
+  margin-bottom: 0;
+}
+
+.columns-media-card .columns-media-card-text-col sup a:any-link,
+.columns-media-card .columns-media-card-text-col a:any-link:has(> sup:only-child) {
+  color: var(--brand-blue);
+  text-decoration: none;
+}
+
+/* ---------- look A: filled (BofA Rewards) ---------- */
+.columns-media-card.columns-media-card-filled {
+  background-color: var(--brand-light-blue);
+  box-shadow: rgb(210 202 202) 0 0 16px 0;
+}
+
+.columns-media-card.columns-media-card-filled .columns-media-card-img-col {
+  aspect-ratio: 1;
+}
+
+.columns-media-card.columns-media-card-filled .columns-media-card-text-col {
+  margin: 32px;
+  font-family: var(--text-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.columns-media-card.columns-media-card-filled .columns-media-card-text-col h2 {
+  margin: 0 0 20px;
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 40px;
+  color: var(--brand-black);
+}
+
+.columns-media-card.columns-media-card-filled .columns-media-card-text-col sup {
+  padding-left: 0.125em;
+  font-size: 0.55em;
+  letter-spacing: -0.025em;
+}
+
+.columns-media-card.columns-media-card-filled .columns-media-card-text-col > p > picture:only-child img {
+  width: auto;
+  height: 36.25px;
+}
+
+/* ---------- look B: outlined (debit card preferred cards) ---------- */
+.columns-media-card.columns-media-card-outlined {
+  border: 1px solid rgb(213 213 213);
+  background-color: var(--brand-white);
+}
+
+.columns-media-card.columns-media-card-outlined .columns-media-card-img-col {
+  height: 300px;
+}
+
+.columns-media-card.columns-media-card-outlined .columns-media-card-text-col {
+  padding: 48px 24px 80px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.columns-media-card.columns-media-card-outlined .columns-media-card-text-col :is(h2, h3, h4) {
+  margin: 0 0 20px;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 38.4px;
+  color: var(--brand-red);
+}
+
+.columns-media-card.columns-media-card-outlined .columns-media-card-text-col :is(h2, h3, h4) sup {
+  padding-left: 1px;
+  font-size: 14px;
+}
+
+.columns-media-card.columns-media-card-outlined .columns-media-card-text-col :is(strong, b) {
+  font-weight: 700;
+}
+
+.columns-media-card.columns-media-card-outlined .columns-media-card-text-col ul {
+  margin: 0 0 16px;
+  padding: 0 0 0 4px;
+}
+
+.columns-media-card.columns-media-card-outlined .columns-media-card-text-col li {
+  margin: 0 0 16px 20px;
+  padding-left: 8px;
+}
+
+.columns-media-card.columns-media-card-outlined .columns-media-card-text-col li:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- paragraphs (ordered by specificity) ---------- */
+.columns-media-card.columns-media-card-filled .columns-media-card-text-col > p,
+.columns-media-card.columns-media-card-outlined .columns-media-card-text-col > p {
+  margin: 0;
+}
+
+.columns-media-card.columns-media-card-filled .columns-media-card-text-col > p:not(:last-child),
+.columns-media-card.columns-media-card-outlined .columns-media-card-text-col > p:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+/* outlined: trailing link-only paragraph is a pill CTA */
+.columns-media-card.columns-media-card-outlined .columns-media-card-text-col > p.columns-media-card-cta {
+  margin-top: 28px;
+  line-height: 0;
+}
+
+/* filled: logo paragraph */
+.columns-media-card.columns-media-card-filled .columns-media-card-text-col > p:has(> picture:only-child) {
+  margin-bottom: 20px;
+  line-height: 0;
+}
+
+.columns-media-card.columns-media-card-outlined p.columns-media-card-cta > a:any-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-height: 52px;
+  padding: 16px;
+  border-radius: 25px;
+  background-color: var(--brand-red);
+  color: var(--brand-white);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.columns-media-card.columns-media-card-outlined p.columns-media-card-cta > a:any-link:hover,
+.columns-media-card.columns-media-card-outlined p.columns-media-card-cta > a:any-link:focus-visible {
+  background-color: var(--brand-red-hover);
+  color: var(--brand-white);
+}
+
+/* ---------- desktop ---------- */
+@media (width >= 900px) {
+  .columns-media-card > div {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .columns-media-card .columns-media-card-img-col {
+    order: 0;
+  }
+
+  .columns-media-card .columns-media-card-text-col {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  /* look A: square photo (~40% of the card) beside top-aligned copy */
+  .columns-media-card.columns-media-card-filled .columns-media-card-img-col {
+    flex: 0 0 39.75%;
+  }
+
+  .columns-media-card.columns-media-card-filled .columns-media-card-text-col {
+    margin: 48px;
+    font-size: 22.5px;
+    line-height: 33.75px;
+  }
+
+  .columns-media-card.columns-media-card-filled .columns-media-card-text-col h2 {
+    margin-bottom: 22.5px;
+  }
+
+  /* look B: half photo / half copy, copy vertically centred; wide gutter on the photo side */
+  .columns-media-card.columns-media-card-outlined .columns-media-card-img-col {
+    flex: 0 0 50%;
+    height: auto;
+  }
+
+  .columns-media-card.columns-media-card-outlined .columns-media-card-text-col {
+    box-sizing: border-box;
+    flex: 0 0 50%;
+    align-self: center;
+    padding: 32px 72px 72px 96px;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 28.8px;
+  }
+
+  .columns-media-card.columns-media-card-outlined .columns-media-card-text-col:first-child {
+    padding: 32px 96px 72px 72px;
+  }
+
+  .columns-media-card.columns-media-card-outlined .columns-media-card-text-col :is(h2, h3, h4) {
+    margin-bottom: 28px;
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .columns-media-card.columns-media-card-outlined .columns-media-card-text-col li {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .columns-media-card.columns-media-card-filled .columns-media-card-text-col > p:not(:last-child) {
+    margin-bottom: 22.5px;
+  }
+
+  .columns-media-card.columns-media-card-outlined .columns-media-card-text-col > p:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  .columns-media-card.columns-media-card-outlined .columns-media-card-text-col > p.columns-media-card-cta {
+    margin-top: 32px;
+  }
+
+  .columns-media-card.columns-media-card-outlined p.columns-media-card-cta > a:any-link {
+    padding: 16px 24px;
+    border-radius: 35px;
+  }
+}

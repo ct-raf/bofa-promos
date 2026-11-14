@@ -1,0 +1,38 @@
+{
+  "variantName": "columns-split-media",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Full-width band pairing a lifestyle or product photo with explanatory copy",
+    "layout": "50/50 split, no card chrome; photo cell fills its half and may sit on either side (cell order follows authoring); text cell vertically centered. Photo stacks on top below 900px",
+    "notes": "Text cell may hold an H2, paragraphs, a list of icon items (:icon: beside a bold H3 and copy) and a CTA. Icon items are grouped from the authored :icon: paragraph plus the following H3 and paragraphs."
+  },
+  "contentPattern": {
+    "structure": "one row, two cells: a picture-only cell and a text cell, in either order",
+    "rows": [
+      [
+        "photo",
+        "H2, paragraphs"
+      ],
+      [
+        "H2, then repeated :icon: paragraph + H3 + paragraph, then CTA link",
+        "photo"
+      ]
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [
+    "columns-split-media"
+  ],
+  "usage": {
+    "description": "Explainer and how-to bands on deposit product promo pages (image left or right).",
+    "pagesUsing": [
+      "/deposits/balanceconnect",
+      "/deposits/growyoursavings",
+      "/deposits/growyoursavings/cd-ira"
+    ],
+    "reuseCount": 3,
+    "lastUsed": "2026-11-14"
+  },
+  "reuseGuidance": "Use for an edge-to-edge 50/50 photo-beside-text band, optionally with icon items. For a rounded, shadowed promo card use columns-media-card; for plain columns use the base columns block."
+}

@@ -1,0 +1,35 @@
+{
+  "variantName": "cards-tile",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Centered tiles without outline: media on top, bold heading, copy and an optional CTA",
+    "layout": "Tiles flow 1 per row on mobile, 2 from 600px and 3 from 900px; an incomplete last row is centered (e.g. two tiles sit centered under a three-column width). Media (small :icon:, spot illustration or lifestyle photo) sits above the centered body",
+    "notes": "Feature icons are :icon: spans (e.g. :lock:, :finance-accounts:, :alert:; SVGs under /icons/). The grey card body behind photo tiles, heading color and CTA pill styling are design-pass details."
+  },
+  "contentPattern": {
+    "structure": "one row per tile: cell 1 image or :icon:, cell 2 H3 title (sup footnote allowed), paragraph copy, optional CTA link. The media cell may be omitted; empty paragraphs are dropped",
+    "rows": [
+      [
+        "image or :icon:",
+        "H3 title, copy, optional Learn more link"
+      ]
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [
+    "cards-tile"
+  ],
+  "usage": {
+    "description": "Feature, how-to and cross-sell tile rows on debit card promotion pages.",
+    "pagesUsing": [
+      "/deposits/debitcard/overview",
+      "/deposits/es/debitcard/overview",
+      "/deposits/growyoursavings",
+      "/deposits/growyoursavings/cd-ira"
+    ],
+    "reuseCount": 5,
+    "lastUsed": "2026-11-14"
+  },
+  "reuseGuidance": "Use for 2-3 centered, outline-free tiles with media above copy. For bordered product cards use cards-product; for icon-beside-text step lists use cards-steps."
+}

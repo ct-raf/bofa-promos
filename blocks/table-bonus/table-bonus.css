@@ -1,0 +1,49 @@
+/* source: .multi-step-content table.center (border="1" table, Connections 16px/22.4px) */
+.table-bonus {
+  overflow-x: auto;
+}
+
+.table-bonus table {
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 22.4px;
+  color: #000;
+}
+
+/* tier rows: 10px padding, 20px/28px copy (49px rows) */
+.table-bonus th,
+.table-bonus td {
+  padding: 10px;
+  border: 1px solid #000;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* header row: navy fill, white 25px/35px bold, 15px padding (66px row) */
+.table-bonus thead th {
+  padding: 15px;
+  background-color: var(--brand-navy);
+  color: var(--brand-white);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 35px;
+}
+
+/* first column values: bright red bold */
+.table-bonus tbody td:first-child {
+  color: var(--brand-red);
+  font-weight: 700;
+}
+
+.table-bonus th p,
+.table-bonus td p {
+  margin: 0;
+}

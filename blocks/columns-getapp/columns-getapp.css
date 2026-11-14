@@ -1,0 +1,180 @@
+/* columns-getapp — source: .getapp2.getapp2--right (migration-work/columns-getapp-extracted.css) */
+
+/* mobile base: text only, the QR/phone image is hidden on the source (sm-noImage) */
+.columns-getapp > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-getapp .columns-getapp-text-col {
+  box-sizing: border-box;
+  padding: 24px 0;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.columns-getapp .columns-getapp-img-col {
+  display: none;
+  line-height: 0;
+}
+
+.columns-getapp .columns-getapp-img-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.columns-getapp .columns-getapp-text-col h2 {
+  margin: 0 0 20px;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 48px;
+}
+
+.columns-getapp .columns-getapp-text-col > :first-child {
+  margin-top: 0;
+}
+
+/* device picker: select + "Get the app" pill */
+.columns-getapp .columns-getapp-picker {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin: 0 0 24px;
+  padding: 0 16px;
+}
+
+.columns-getapp .columns-getapp-select {
+  box-sizing: border-box;
+  height: 48px;
+  border: 1px solid var(--brand-light-grey);
+  background-color: var(--brand-white);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 46'%3E%3Crect width='46' height='46' fill='%23012169'/%3E%3Cpath d='M13 18.5l10 10 10-10' fill='none' stroke='%23fff' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-position: 100% 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.columns-getapp .columns-getapp-select select {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 5px 54px 5px 8px;
+  appearance: none;
+  background: transparent;
+  color: #646464;
+  font-family: var(--body-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: start;
+  cursor: pointer;
+}
+
+.columns-getapp .columns-getapp-select select:focus-visible {
+  outline: 2px solid var(--brand-navy);
+  outline-offset: 3px;
+}
+
+/* source keeps the red pill (with the UA outset border) while no device is chosen */
+.columns-getapp .columns-getapp-picker button.button,
+.columns-getapp .columns-getapp-picker button.button:is(:disabled, [aria-disabled="true"]) {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  min-height: 48px;
+  border: 2px outset #000;
+  border-radius: 25px;
+  padding: 0 16px;
+  background-color: var(--brand-red);
+  color: var(--brand-white);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.columns-getapp .columns-getapp-picker button.button:hover,
+.columns-getapp .columns-getapp-picker button.button:focus-visible {
+  background-color: var(--brand-red-hover);
+}
+
+.columns-getapp .columns-getapp-picker button.button:is(:disabled, [aria-disabled="true"]) {
+  cursor: not-allowed;
+}
+
+/* consent copy + terms link */
+.columns-getapp .columns-getapp-text-col p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 25.2px;
+}
+
+.columns-getapp .columns-getapp-text-col > :last-child {
+  margin-bottom: 20px;
+}
+
+/* fallback when there is no button label: plain device links */
+.columns-getapp .columns-getapp-devices {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+@media (width >= 900px) {
+  /* the source panel spans the full 1440px row: bleed over the section's inline padding */
+  .columns-getapp {
+    margin-inline: calc(-1 * var(--section-padding-inline));
+  }
+
+  .columns-getapp > div {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .columns-getapp > div > div {
+    flex: 0 0 50%;
+    min-width: 0;
+  }
+
+  .columns-getapp.columns-getapp-1-cols > div > div {
+    flex-basis: 100%;
+  }
+
+  .columns-getapp .columns-getapp-text-col {
+    padding: 40px 72px 0;
+  }
+
+  .columns-getapp .columns-getapp-img-col {
+    display: block;
+  }
+
+  .columns-getapp .columns-getapp-text-col h2 {
+    margin-bottom: 32px;
+    font-size: 48px;
+    line-height: 56.04px;
+  }
+
+  .columns-getapp .columns-getapp-picker {
+    margin-bottom: 32px;
+    padding: 0 80px;
+  }
+
+  .columns-getapp .columns-getapp-picker button.button,
+  .columns-getapp .columns-getapp-picker button.button:is(:disabled, [aria-disabled="true"]) {
+    border-radius: 35px;
+  }
+
+  .columns-getapp .columns-getapp-text-col > :last-child {
+    margin-bottom: 32px;
+  }
+}

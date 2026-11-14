@@ -1,0 +1,244 @@
+/*
+ * cards-tile — three looks, chosen by the tile classes the block JS sets on each li:
+ *   .cards-tile-icon    :icon: feature tiles (source section.features)
+ *   .cards-tile-photo   illustration / photo tiles (source section.tiles),
+ *                       + .cards-tile-has-cta: grey card body with a red pill CTA
+ *   .cards-tile-graphic small spot-image step tiles (source .multi-step-content)
+ * Values: migration-work/cards-tile-extracted.css (1440px / 390px captures).
+ */
+
+/* grid: tiles row runs 11px past the content box (source .tiles__row margin) */
+.cards-tile > ul {
+  list-style: none;
+  margin: 0 -11px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cards-tile > ul > li {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding: 0 11px 48px;
+  text-align: center;
+}
+
+/* media */
+.cards-tile .cards-tile-image {
+  line-height: 0;
+}
+
+.cards-tile .cards-tile-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* body (photo tiles and default) */
+.cards-tile .cards-tile-body {
+  flex: 1;
+  padding-top: 20px;
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+.cards-tile .cards-tile-no-image .cards-tile-body {
+  padding-top: 0;
+}
+
+.cards-tile .cards-tile-body :is(h2, h3, h4) {
+  margin: 0 0 16px;
+  font-size: 22.5px;
+  font-weight: 700;
+  line-height: 28.125px;
+  color: var(--brand-black);
+}
+
+.cards-tile .cards-tile-body p {
+  margin: 0 0 16px;
+  font-size: 18px;
+  line-height: 23.4px;
+}
+
+.cards-tile .cards-tile-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* footnote reference links (a > sup) carry no underline */
+.cards-tile a:any-link:has(> sup) {
+  text-decoration: none;
+}
+
+/* CTA: standalone trailing link as a red pill */
+main .cards-tile .cards-tile-cta {
+  margin: auto 0 0;
+  padding-top: 16px;
+}
+
+main .cards-tile .cards-tile-cta a:any-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: var(--button-height);
+  max-width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: var(--button-radius);
+  padding: 0 16px;
+  background-color: var(--brand-red);
+  color: var(--brand-white);
+  font-size: var(--button-font-size);
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+}
+
+main .cards-tile .cards-tile-cta a:any-link:hover,
+main .cards-tile .cards-tile-cta a:any-link:focus-visible {
+  background-color: var(--brand-red-hover);
+  color: var(--brand-white);
+}
+
+/* step tiles: small spot image, red heading. Source: 52px margin + 10px padding
+   under the heading, less the section's 24px default-content gap */
+.cards-tile > ul > li.cards-tile-graphic {
+  padding: 38px 11px 10px;
+}
+
+.cards-tile .cards-tile-graphic > * {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 330px;
+  margin-inline: auto;
+}
+
+.cards-tile .cards-tile-graphic .cards-tile-image {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  margin-bottom: 16px;
+}
+
+.cards-tile .cards-tile-graphic .cards-tile-image img {
+  width: auto;
+  max-width: 100px;
+  height: 70px;
+}
+
+.cards-tile .cards-tile-graphic .cards-tile-body {
+  padding-top: 0;
+}
+
+.cards-tile .cards-tile-graphic .cards-tile-body :is(h2, h3, h4) {
+  font-size: 22px;
+  line-height: 28.6px;
+  color: var(--brand-red);
+}
+
+.cards-tile .cards-tile-graphic .cards-tile-body,
+.cards-tile .cards-tile-graphic .cards-tile-body p {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+/* icon feature tiles. Source: 16px list + 32px tile margin under the heading;
+   24px of that comes from the section's default-content gap, so 24px here */
+.cards-tile > ul > li.cards-tile-icon {
+  margin: 24px 0 16px;
+  padding: 0 11px;
+}
+
+.cards-tile .cards-tile-icon .cards-tile-image {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.cards-tile .cards-tile-icon .cards-tile-image .icon,
+.cards-tile .cards-tile-icon .cards-tile-image .icon img {
+  width: 60px;
+  height: 60px;
+}
+
+.cards-tile .cards-tile-icon .cards-tile-body {
+  padding: 0 20px;
+}
+
+.cards-tile .cards-tile-icon .cards-tile-body :is(h2, h3, h4) {
+  margin-bottom: 8px;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+/* photo tile with CTA: grey card body under the image */
+.cards-tile .cards-tile-photo.cards-tile-has-cta .cards-tile-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 32px 32px;
+  background-color: var(--brand-pale-grey);
+}
+
+.cards-tile .cards-tile-photo.cards-tile-has-cta .cards-tile-body > * {
+  align-self: stretch;
+}
+
+@media (width >= 600px) {
+  .cards-tile > ul > li {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-tile > ul > li {
+    flex-basis: 33.3333%;
+    max-width: 33.3333%;
+    padding: 0 20px;
+  }
+
+  .cards-tile .cards-tile-body,
+  .cards-tile .cards-tile-body p {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .cards-tile .cards-tile-body :is(h2, h3, h4) {
+    font-size: 25px;
+    line-height: 31.25px;
+  }
+
+  .cards-tile .cards-tile-photo .cards-tile-body {
+    padding-right: 16px;
+  }
+
+  .cards-tile > ul > li.cards-tile-icon {
+    flex: 0 1 300px;
+    max-width: 300px;
+    margin: 24px 26px 16px;
+    padding: 0;
+  }
+
+  .cards-tile .cards-tile-icon .cards-tile-body :is(h2, h3, h4) {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .cards-tile > ul > li.cards-tile-graphic {
+    padding: 38px 20px 10px;
+  }
+
+  .cards-tile .cards-tile-graphic .cards-tile-body :is(h2, h3, h4) {
+    line-height: 27.5px;
+  }
+
+  .cards-tile .cards-tile-photo.cards-tile-has-cta .cards-tile-body {
+    padding: 24px 32px 32px;
+  }
+}

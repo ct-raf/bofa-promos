@@ -383,3 +383,55 @@ main .section.dark-red a:any-link:not(.button),
 main .section.dark-blue a:any-link:not(.button) {
   color: var(--brand-white);
 }
+
+/*
+ * Icon-font icons (extracted from the source icon font as black SVGs). Shown as a CSS mask so
+ * blocks can color them with --icon-color (default: currentcolor); the <img> stays for sizing,
+ * alt text and as a fallback.
+ */
+.icon:is(.icon-alert, .icon-arrow-transfer, .icon-calendar, .icon-finance-accounts, .icon-finance-card, .icon-finance-certificate-of-deposit, .icon-finance-check, .icon-finance-deposit, .icon-finance-interest, .icon-finance-keep-the-change, .icon-finance-payment, .icon-finance-savings, .icon-lock, .icon-logout, .icon-people-group, .icon-plan-tools, .icon-preferred-rewards, .icon-settings, .icon-stop) {
+  background-color: var(--icon-color, currentcolor);
+  mask: var(--icon-mask) center / contain no-repeat;
+}
+
+.icon:is(.icon-alert, .icon-arrow-transfer, .icon-calendar, .icon-finance-accounts, .icon-finance-card, .icon-finance-certificate-of-deposit, .icon-finance-check, .icon-finance-deposit, .icon-finance-interest, .icon-finance-keep-the-change, .icon-finance-payment, .icon-finance-savings, .icon-lock, .icon-logout, .icon-people-group, .icon-plan-tools, .icon-preferred-rewards, .icon-settings, .icon-stop) img {
+  opacity: 0;
+}
+
+.icon-alert { --icon-mask: url("/icons/alert.svg"); }
+
+.icon-arrow-transfer { --icon-mask: url("/icons/arrow-transfer.svg"); }
+
+.icon-calendar { --icon-mask: url("/icons/calendar.svg"); }
+
+.icon-finance-accounts { --icon-mask: url("/icons/finance-accounts.svg"); }
+
+.icon-finance-card { --icon-mask: url("/icons/finance-card.svg"); }
+
+.icon-finance-certificate-of-deposit { --icon-mask: url("/icons/finance-certificate-of-deposit.svg"); }
+
+.icon-finance-check { --icon-mask: url("/icons/finance-check.svg"); }
+
+.icon-finance-deposit { --icon-mask: url("/icons/finance-deposit.svg"); }
+
+.icon-finance-interest { --icon-mask: url("/icons/finance-interest.svg"); }
+
+.icon-finance-keep-the-change { --icon-mask: url("/icons/finance-keep-the-change.svg"); }
+
+.icon-finance-payment { --icon-mask: url("/icons/finance-payment.svg"); }
+
+.icon-finance-savings { --icon-mask: url("/icons/finance-savings.svg"); }
+
+.icon-lock { --icon-mask: url("/icons/lock.svg"); }
+
+.icon-logout { --icon-mask: url("/icons/logout.svg"); }
+
+.icon-people-group { --icon-mask: url("/icons/people-group.svg"); }
+
+.icon-plan-tools { --icon-mask: url("/icons/plan-tools.svg"); }
+
+.icon-preferred-rewards { --icon-mask: url("/icons/preferred-rewards.svg"); }
+
+.icon-settings { --icon-mask: url("/icons/settings.svg"); }
+
+.icon-stop { --icon-mask: url("/icons/stop.svg"); }

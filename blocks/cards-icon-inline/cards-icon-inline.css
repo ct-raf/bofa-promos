@@ -60,3 +60,8 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* icon-font icons are masks colored by --icon-color (see styles.css); source: navy */
+.cards-icon-inline {
+  --icon-color: var(--brand-navy);
+}

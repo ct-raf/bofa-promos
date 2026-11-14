@@ -1,0 +1,144 @@
+/*
+ * Hero Offset Panel: photo inset from the right edge with a solid panel
+ * overlapping its bottom-left corner. Values from the source capture
+ * (.image-with-text-offset, 1440px / 390px).
+ */
+.hero-offset-panel {
+  /* how far the panel reaches past the photo's bottom edge */
+  --hero-offset-panel-offset: 65px;
+
+  display: flex;
+  flex-direction: column;
+
+  /* the band is full-bleed: cancel the section's inline padding */
+  margin-inline: calc(-1 * var(--section-padding-inline));
+}
+
+.hero-offset-panel .hero-offset-panel-media picture {
+  display: block;
+}
+
+.hero-offset-panel .hero-offset-panel-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 390 / 325;
+  object-fit: cover;
+}
+
+/* Mobile: panel stacks under the photo and pulls up over its bottom edge. */
+.hero-offset-panel .hero-offset-panel-panel {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  margin: calc(-1 * var(--hero-offset-panel-offset)) 5% 0 0;
+  padding: 2% 5% 3%;
+  background-color: var(--hero-offset-panel-background, var(--brand-red-hover));
+  color: var(--hero-offset-panel-color, var(--brand-white));
+  text-align: left;
+}
+
+.hero-offset-panel.hero-offset-panel-no-media .hero-offset-panel-panel {
+  margin: 0;
+}
+
+.hero-offset-panel .hero-offset-panel-panel :is(h1, h2, h3, h4, h5, h6, p) {
+  color: inherit;
+}
+
+.hero-offset-panel .hero-offset-panel-panel :is(h1, h2, h3, h4, h5, h6) {
+  margin: 8px 0;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 46.68px;
+}
+
+.hero-offset-panel .hero-offset-panel-panel p {
+  margin: 18px 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.hero-offset-panel .hero-offset-panel-panel > :last-child {
+  margin-bottom: 24px;
+}
+
+/* The CTA is a bold, underlined text link on the source, not a pill. The
+   authored <strong><a> is auto-decorated as a.button.primary; undo that. */
+.hero-offset-panel .hero-offset-panel-panel a:any-link,
+main .hero-offset-panel .hero-offset-panel-panel a.button:any-link {
+  display: inline;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 0;
+  padding: 0;
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
+  text-decoration: underline 1px;
+  text-underline-offset: 2px;
+}
+
+main .hero-offset-panel .hero-offset-panel-panel a.button:any-link {
+  font-weight: 700;
+}
+
+.hero-offset-panel .hero-offset-panel-panel a:any-link:is(:hover, :focus),
+main .hero-offset-panel .hero-offset-panel-panel a.button:any-link:is(:hover, :focus-visible) {
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Desktop: photo stops 5% short of the right edge; the 58% panel sits on its
+   bottom-left corner and extends below it. Grid keeps longer copy in flow. */
+@media (width >= 900px) {
+  .hero-offset-panel {
+    display: grid;
+    grid-template-rows: auto var(--hero-offset-panel-offset);
+  }
+
+  .hero-offset-panel.hero-offset-panel-no-panel {
+    grid-template-rows: auto;
+  }
+
+  .hero-offset-panel .hero-offset-panel-media {
+    grid-area: 1 / 1;
+    align-self: start;
+    margin-right: 5%;
+  }
+
+  .hero-offset-panel .hero-offset-panel-media img {
+    aspect-ratio: 1368 / 700;
+  }
+
+  .hero-offset-panel .hero-offset-panel-panel {
+    grid-row: 1 / span 2;
+    grid-column: 1;
+    align-self: end;
+    width: 58%;
+    margin: 0;
+  }
+
+  .hero-offset-panel.hero-offset-panel-no-media .hero-offset-panel-panel {
+    grid-row: auto;
+  }
+
+  .hero-offset-panel .hero-offset-panel-panel :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 48px;
+    line-height: 54px;
+    text-wrap: balance;
+  }
+
+  .hero-offset-panel .hero-offset-panel-panel p {
+    margin: 20px 0;
+    font-size: 20px;
+  }
+
+  .hero-offset-panel .hero-offset-panel-panel > :last-child {
+    margin-bottom: 20px;
+  }
+}

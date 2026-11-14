@@ -1,0 +1,103 @@
+/* cards-steps — source: .multi-step-content (1068px column, 52px step rhythm) */
+.cards-steps {
+  max-width: 1068px;
+  margin: 0 auto;
+}
+
+/* block flow (not flex) so step margins collapse with the section's 24px gaps, as on the source */
+.cards-steps > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* mobile: icon stacked above centred copy.
+   Icon PNGs carry ~12% transparent padding: a 70px image gives the source's 54px circle */
+.cards-steps > ul > li {
+  margin: 52px 1%;
+  text-align: center;
+}
+
+.cards-steps .cards-steps-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 70px;
+  margin: 0 auto 16px;
+  line-height: 0;
+}
+
+.cards-steps .cards-steps-icon picture,
+.cards-steps .cards-steps-icon .icon {
+  display: block;
+  width: 70px;
+  height: 70px;
+}
+
+.cards-steps .cards-steps-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cards-steps .cards-steps-body {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.cards-steps .cards-steps-body p {
+  margin: 16px 0 0;
+}
+
+.cards-steps .cards-steps-body > :first-child {
+  margin-top: 0;
+}
+
+.cards-steps .cards-steps-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* italic note under a step (paragraph that is only an <em>) */
+.cards-steps .cards-steps-body > p:has(> em:only-child) {
+  margin: 20px 0;
+  font-size: 16px;
+  line-height: 22.4px;
+}
+
+.cards-steps .cards-steps-body > p:has(> em:only-child):last-child {
+  margin-bottom: 0;
+}
+
+/* step before an in-flow table (source: table sits 16px under the step copy).
+   24px section gap collapsed with -8px = 16px */
+.cards-steps-wrapper:has(+ .table-bonus-wrapper) .cards-steps > ul > li:last-child {
+  margin-bottom: -8px;
+}
+
+/* step after the table: 52px + 6px inline-table line box on the source */
+.table-bonus-wrapper + .cards-steps-wrapper .cards-steps > ul > li:first-child {
+  margin-top: 58px;
+}
+
+@media (width >= 900px) {
+  /* icon absolutely placed 50px in (100x70 box), copy starts 180px in; icon does not add height */
+  .cards-steps > ul > li {
+    position: relative;
+    margin: 52px 1% 48px;
+    padding-left: 180px;
+    text-align: left;
+  }
+
+  .cards-steps > ul > li:last-child {
+    margin-bottom: 36.8px;
+  }
+
+  .cards-steps .cards-steps-icon {
+    position: absolute;
+    top: 0;
+    left: 50px;
+    margin: 0;
+  }
+}

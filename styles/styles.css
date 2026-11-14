@@ -1,3 +1,5 @@
+@import url('brand.css');
+
 /*
  * Copyright 2020 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
@@ -10,64 +12,29 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+/* design tokens live in brand.css */
 
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
-
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
-
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
-
-  /* nav height */
-  --nav-height: 64px;
-}
-
-/* fallback fonts */
+/*
+ * Metric-matched fallbacks so the swap to Connections doesn't shift layout (CLS).
+ * Values measured from the font files against Arial metrics (Arimo): advance width of a mixed
+ * EN/ES sample -> size-adjust; ascent/descent/line-gap scaled by that factor.
+ */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
+  font-family: connections-fallback;
+  size-adjust: 94.55%;
+  ascent-override: 98.46%;
+  descent-override: 27.92%;
+  line-gap-override: 0%;
+  src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo'), local('Roboto');
 }
 
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
-}
-
-@media (width >= 900px) {
-  :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
-  }
+  font-family: connections-light-fallback;
+  size-adjust: 90.3%;
+  ascent-override: 100.89%;
+  descent-override: 30.01%;
+  line-gap-override: 0%;
+  src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo'), local('Roboto');
 }
 
 body {
@@ -77,7 +44,8 @@ body {
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-  line-height: 1.6;
+  line-height: var(--body-line-height);
+  -webkit-font-smoothing: antialiased;
 }
 
 body.appear {
@@ -98,17 +66,18 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
+/* default content typography (source: migration-work/default-content-extracted.css) */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: 24px;
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: var(--heading-font-weight);
+  line-height: var(--heading-line-height);
   scroll-margin: 40px;
 }
 
@@ -125,8 +94,13 @@ ol,
 ul,
 pre,
 blockquote {
-  margin-top: 0.8em;
-  margin-bottom: 0.25em;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+sup {
+  font-size: 0.6em;
+  line-height: 0;
 }
 
 code,
@@ -142,10 +116,6 @@ pre {
   white-space: pre;
 }
 
-main > div {
-  margin: 40px 16px;
-}
-
 input,
 textarea,
 select,
@@ -153,21 +123,52 @@ button {
   font: inherit;
 }
 
-/* links */
+/* links: blue + underline; navy, no underline on hover/focus/active */
 a:any-link {
   color: var(--link-color);
-  text-decoration: none;
+  text-decoration: underline 1px;
+  text-underline-offset: 2px;
   overflow-wrap: break-word;
 }
 
-a:hover {
+a:hover,
+a:focus,
+a:active {
   color: var(--link-hover-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
-/* buttons */
+/* keyboard focus: a ring outside the element that contrasts with the page, not the text color
+   (white pill text would make a currentcolor ring invisible on white) */
+:is(a, button, select, input, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--brand-navy);
+  outline-offset: 3px;
+}
+
+main .section:is(.red, .dark-red, .dark-blue) :is(a, button, select, input, [tabindex]):focus-visible,
+main .hero-offset-panel .hero-offset-panel-panel :is(a, button):focus-visible {
+  outline-color: var(--brand-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* footnote references: no underline */
+sup a:any-link {
+  text-decoration: none;
+}
+
+/* buttons — pill CTAs. **link** = red (primary), _link_ = navy (secondary) */
 p.button-wrapper {
-  margin: 12px 0;
+  margin: 16px 0;
 }
 
 a.button:any-link,
@@ -176,19 +177,21 @@ button.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: var(--button-min-width);
+  min-height: var(--button-height);
   max-width: 100%;
   margin: 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
-  font: inherit;
-  font-weight: 500;
-  line-height: 1.25;
+  border: 0;
+  border-radius: var(--button-radius);
+  padding: 0 16px;
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 a.button[aria-disabled="true"],
@@ -199,83 +202,53 @@ button.button:disabled {
 
 a.button.primary,
 button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
-  color: var(--background-color);
+  background-color: var(--brand-red);
+  color: var(--brand-white);
 }
 
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  background-color: var(--brand-red-hover);
+  color: var(--brand-white);
 }
 
-a.button.primary[aria-disabled="true"],
-a.button.primary[aria-disabled="true"]:hover,
-a.button.primary[aria-disabled="true"]:focus-visible,
-button.button.primary:disabled,
-button.button.primary:disabled:hover,
-button.button.primary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-a.button.secondary,
-button.button.secondary {
-  border-color: var(--text-color);
-  background-color: transparent;
-  color: var(--text-color);
-}
-
-a.button.secondary:hover,
-a.button.secondary:focus-visible,
-button.button.secondary:hover,
-button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-a.button.secondary[aria-disabled="true"],
-a.button.secondary[aria-disabled="true"]:hover,
-a.button.secondary[aria-disabled="true"]:focus-visible,
-button.button.secondary:disabled,
-button.button.secondary:disabled:hover,
-button.button.secondary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-/* high-impact call-to-action */
+/* **_link_** = white pill with navy text, used on colored bands */
 a.button.accent,
 button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
-  color: var(--background-color);
+  background-color: var(--brand-white);
+  color: var(--brand-navy);
 }
 
 a.button.accent:hover,
 a.button.accent:focus-visible,
 button.button.accent:hover,
 button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
+  background-color: #e6e6e6;
+  color: var(--brand-navy);
 }
 
+a.button.secondary,
+button.button.secondary {
+  background-color: var(--brand-navy);
+  color: var(--brand-white);
+}
+
+a.button.secondary:hover,
+a.button.secondary:focus-visible,
+button.button.secondary:hover,
+button.button.secondary:focus-visible {
+  background-color: #001543;
+  color: var(--brand-white);
+}
+
+a.button.primary[aria-disabled="true"],
+a.button.secondary[aria-disabled="true"],
 a.button.accent[aria-disabled="true"],
-a.button.accent[aria-disabled="true"]:hover,
-a.button.accent[aria-disabled="true"]:focus-visible,
-button.button.accent:disabled,
-button.button.accent:disabled:hover,
-button.button.accent:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
+button.button:disabled {
+  background-color: #d4d4d4;
+  color: #646464;
 }
 
 main img {
@@ -295,31 +268,118 @@ main img {
   width: 100%;
 }
 
-/* sections */
+/* sections: 48px block padding, 72px (desktop) / 5vw (mobile) inline, 1440px max */
 main > .section {
-  margin: 40px 0;
+  margin: 0;
+  padding: var(--section-padding-block) 0;
 }
 
 main > .section > div {
-  max-width: 1200px;
+  box-sizing: border-box;
+  max-width: var(--content-max-width);
   margin: auto;
-  padding: 0 24px;
+  padding: 0 var(--section-padding-inline);
 }
 
-main > .section:first-of-type {
-  margin-top: 0;
+main > .section > div + div {
+  margin-top: 24px;
 }
 
-@media (width >= 900px) {
-  main > .section > div {
-    padding: 0 32px;
+/* default content next to specific blocks (source layout) */
+main > .section.cards-product-container > .default-content-wrapper {
+  text-align: center;
+}
+
+/* heading above tile grids is centered; a page-title H1 there is brand red (debit overview) */
+main > .section.cards-tile-container > .default-content-wrapper {
+  text-align: center;
+}
+
+main > .section.cards-tile-container > .default-content-wrapper h1 {
+  color: var(--brand-red);
+  font-size: var(--heading-font-size-xl);
+}
+
+main > .section.cards-steps-container > .default-content-wrapper {
+  max-width: calc(1068px + 2 * var(--section-padding-inline));
+}
+
+main > .section.cards-steps-container > .default-content-wrapper:last-child {
+  font-size: var(--body-font-size-s);
+  text-align: center;
+}
+
+@media (width < 900px) {
+  main > .section.cards-steps-container > .default-content-wrapper:first-child {
+    text-align: center;
   }
 }
 
-/* section metadata */
+@media (width >= 900px) {
+  main > .section.cards-steps-container > .default-content-wrapper:last-child {
+    font-size: 18px;
+  }
+}
+
+/* section metadata styles */
+main .section.centered {
+  text-align: center;
+}
+
+main .section.light-blue {
+  background-color: var(--brand-light-blue);
+}
+
+/* light-grey is the legal disclosures band: small copy */
+main .section.light-grey {
+  background-color: var(--brand-light-grey);
+  font-size: var(--body-font-size-xs);
+  line-height: 1.4;
+}
+
+main .section.light-grey p,
+main .section.light-grey li {
+  margin-bottom: 12px;
+}
+
+main .section.light-grey a:any-link {
+  color: inherit;
+}
+
+main .section.pale-grey,
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
-  margin: 0;
-  padding: 40px 0;
+  background-color: var(--brand-pale-grey);
+}
+
+/* colored bands are always centered on the source */
+main .section.red,
+main .section.dark-red,
+main .section.dark-blue {
+  color: var(--brand-white);
+  text-align: center;
+}
+
+main .section.red {
+  background-color: var(--brand-red);
+}
+
+main .section.dark-red {
+  background: var(--brand-dark-red) url('images/flagscape-red.svg') center / cover no-repeat;
+}
+
+main .section.dark-blue {
+  background-color: var(--brand-navy);
+}
+
+main .section.red :is(h1, h2, h3, h4, h5, h6, p, li),
+main .section.dark-red :is(h1, h2, h3, h4, h5, h6, p, li),
+main .section.dark-blue :is(h1, h2, h3, h4, h5, h6, p, li) {
+  color: inherit;
+}
+
+main .section.red a:any-link:not(.button),
+main .section.dark-red a:any-link:not(.button),
+main .section.dark-blue a:any-link:not(.button) {
+  color: var(--brand-white);
 }

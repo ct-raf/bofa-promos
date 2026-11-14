@@ -1,0 +1,21 @@
+{
+  "variantName": "table-bonus",
+  "baseBlock": "table",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Compact bonus-tier table placed inside a step list",
+    "layout": "Narrow centered table; header row, row separators, emphasized first column",
+    "notes": "Brand header fill and value color are left to the design pass."
+  },
+  "contentPattern": {
+    "structure": "row 1: column headers (e.g. bonus, required deposits); following rows: one tier per row",
+    "rows": [
+      ["header 1", "header 2"],
+      ["value", "value"]
+    ]
+  },
+  "options": [],
+  "memberVariantIds": ["table-bonus"],
+  "usage": "Small tier/lookup tables highlighted in the page body.",
+  "reuseGuidance": "Use for short highlighted tier tables. For plain gridded tables in legal copy use table-bordered."
+}

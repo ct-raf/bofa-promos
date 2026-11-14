@@ -10,6 +10,9 @@ import {
   loadSections,
   loadCSS,
   buildBlock,
+  readBlockConfig,
+  toClassName,
+  toCamelCase,
 } from './aem.js';
 
 if (window.trustedTypes && window.trustedTypes.createPolicy) {
@@ -147,10 +150,35 @@ function decorateButtons(main) {
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
+/**
+ * Applies Section Metadata blocks to their sections: `style` values become section classes
+ * (comma-separated, e.g. "dark-red, centered"), other keys become data attributes.
+ * @param {HTMLElement} main The main container element
+ */
+function decorateSectionMetadata(main) {
+  main.querySelectorAll(':scope > .section div.section-metadata').forEach((meta) => {
+    const section = meta.closest('.section');
+    Object.entries(readBlockConfig(meta)).forEach(([key, value]) => {
+      if (key === 'style') {
+        String(value).split(',').map((s) => toClassName(s.trim())).filter(Boolean)
+          .forEach((cls) => section.classList.add(cls));
+      } else {
+        section.dataset[toCamelCase(key)] = value;
+      }
+    });
+    const wrapper = meta.parentElement;
+    meta.remove();
+    if (wrapper && wrapper !== section && !wrapper.children.length) wrapper.remove();
+  });
+}
+
+// named export is imported by blocks (e.g. fragment) — keep it named
+// eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionMetadata(main);
   decorateBlocks(main);
   decorateButtons(main);
 }
@@ -160,7 +188,8 @@ export function decorateMain(main) {
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
-  document.documentElement.lang = 'en';
+  // Spanish pages live under an /es/ path segment (e.g. /es/offers/…, /deposits/es/…)
+  document.documentElement.lang = window.location.pathname.split('/').includes('es') ? 'es' : 'en';
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {

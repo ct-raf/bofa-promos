@@ -1,0 +1,30 @@
+{
+  "variantName": "hero-offset-panel",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Promotional feature band: a large photo with a solid colored text panel offset over its bottom-left corner",
+    "layout": "Photo inset from the right edge (about 96% width on desktop). A solid red panel (~58% width) overlaps the bottom-left of the photo and extends below it, holding a heading, paragraph and link in white. On mobile the panel stacks under the photo and pulls up over its bottom edge.",
+    "notes": "Panel color is exposed as --hero-offset-panel-background (default #c41230) and text color as --hero-offset-panel-color for the design pass. JS adds no text, so Spanish pages work unchanged."
+  },
+  "contentPattern": {
+    "structure": "row 1: photo only; row 2: heading (H2), paragraph(s), link. Either row may be omitted",
+    "rows": [
+      ["photo"],
+      ["H2 heading, paragraph, link"]
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [
+    "hero-offset-panel"
+  ],
+  "usage": {
+    "description": "Mid-page feature band pairing a lifestyle photo with an offset promo panel (e.g. Better Money Habits).",
+    "pagesUsing": [
+      "/deposits/growyoursavings"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-14"
+  },
+  "reuseGuidance": "Use when a photo carries a solid text panel overlapping its bottom-left corner. For text directly over a full-bleed background image, use hero-offer or the base hero."
+}

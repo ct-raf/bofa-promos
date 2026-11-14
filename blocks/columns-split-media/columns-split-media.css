@@ -1,0 +1,228 @@
+/*
+ * Columns (split media) — source: .content-tile (promotions.bankofamerica.com/deposits/balanceconnect)
+ * Edge-to-edge 50/50 band: photo at natural aspect beside the copy column. Mobile first.
+ */
+
+/* full bleed: cancel the section inline padding (source tile is 100% wide, max 1440px) */
+.columns-split-media {
+  margin-inline: calc(-1 * var(--section-padding-inline));
+  color: var(--brand-black);
+}
+
+.columns-split-media > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-split-media > div > .columns-split-media-img-col {
+  order: 0;
+  line-height: 0;
+}
+
+.columns-split-media > div > .columns-split-media-text-col {
+  order: 1;
+
+  /* source: padding 2% 5% 0 + 25px mobile icon spacer above the title */
+  padding: calc(2% + 25px) 5% 0;
+}
+
+.columns-split-media .columns-split-media-img-col picture {
+  display: block;
+}
+
+.columns-split-media .columns-split-media-img-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* title: 40/46.68 mobile, 48/54 desktop; tiles with icon items use the small title (32 / 40) */
+.columns-split-media .columns-split-media-text-col h2 {
+  margin: 8px 0;
+  font-size: 40px;
+  font-weight: 300;
+  line-height: 1.167;
+}
+
+.columns-split-media .columns-split-media-text-col:has(.columns-split-media-icon-list) h2 {
+  font-size: 32px;
+}
+
+.columns-split-media .columns-split-media-text-col sup {
+  padding-left: 1px;
+}
+
+.columns-split-media .columns-split-media-text-col h2 sup {
+  font-size: 14px;
+}
+
+/* footnote references (<a><sup>n</sup></a>): no underline, as on the source */
+.columns-split-media a:any-link:has(> sup:only-child) {
+  text-decoration: none;
+}
+
+/* copy: 18/23.4 mobile, 20/26 desktop, 1em block margins; source copy box has 11px right padding */
+.columns-split-media .columns-split-media-text-col > p,
+.columns-split-media .columns-split-media-text-col > ul {
+  padding-right: 11px;
+}
+
+.columns-split-media .columns-split-media-text-col p {
+  margin: 1em 0;
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* icon items: 40px navy icon box, 8px inset, 22px (mobile) / 20px (desktop) gap */
+.columns-split-media .columns-split-media-icon-list {
+  list-style: none;
+  margin: 20px 0 0;
+  padding-left: 0;
+  text-align: left;
+}
+
+.columns-split-media .columns-split-media-icon-item {
+  display: flex;
+  align-items: stretch;
+  margin: 0 4px 4px;
+  padding-left: 8px;
+  line-height: 24px;
+}
+
+.columns-split-media .columns-split-media-icon-item:last-child {
+  margin-bottom: 0;
+}
+
+.columns-split-media .columns-split-media-icon {
+  flex: 0 0 40px;
+  max-width: 70px;
+  margin-right: 22px;
+  color: var(--brand-navy);
+  line-height: 0;
+}
+
+.columns-split-media .columns-split-media-icon .icon,
+.columns-split-media .columns-split-media-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.columns-split-media .columns-split-media-icon-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.columns-split-media .columns-split-media-icon-body h3 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.columns-split-media .columns-split-media-icon-body p {
+  margin: 0 0 22px;
+}
+
+/* the list is followed by a 16px gap (source copy margin-bottom) */
+.columns-split-media .columns-split-media-icon-list + * {
+  margin-top: 16px;
+}
+
+/* CTA: navy pill, 54px / radius 25 mobile, 64px / radius 35 desktop, 24px text */
+.columns-split-media .columns-split-media-text-col > p.columns-split-media-cta {
+  margin: 16px 0 32px;
+  padding-right: 0;
+}
+
+main .columns-split-media p.columns-split-media-cta > a:any-link,
+main .columns-split-media p.columns-split-media-cta > :is(strong, em, b, i) > a:any-link {
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-height: 54px;
+  border-radius: 25px;
+  padding: 0 16px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+}
+
+main .columns-split-media p.columns-split-media-cta > a:any-link:not(.button),
+main .columns-split-media p.columns-split-media-cta > :is(strong, em, b, i) > a:any-link:not(.button) {
+  background-color: var(--brand-navy);
+  color: var(--brand-white);
+}
+
+main .columns-split-media p.columns-split-media-cta > a:any-link:not(.button):is(:hover, :focus-visible),
+main .columns-split-media p.columns-split-media-cta > :is(strong, em, b, i) > a:any-link:not(.button):is(:hover, :focus-visible) {
+  background-color: #001543;
+  color: var(--brand-white);
+}
+
+/* small legal note under the items */
+.columns-split-media .columns-split-media-text-col > p.columns-split-media-note {
+  font-size: var(--body-font-size-xs);
+}
+
+.columns-split-media .columns-split-media-text-col > p.columns-split-media-note sub {
+  font-size: inherit;
+  vertical-align: baseline;
+}
+
+@media (width >= 900px) {
+  .columns-split-media > div {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* photo-first tiles are top aligned on the source; text-first tiles are vertically centered */
+  .columns-split-media > div.columns-split-media-img-first {
+    align-items: flex-start;
+  }
+
+  .columns-split-media > div > div {
+    flex: 1 1 50%;
+    max-width: 50%;
+    min-width: 0;
+  }
+
+  .columns-split-media > div > .columns-split-media-img-col,
+  .columns-split-media > div > .columns-split-media-text-col {
+    order: unset;
+  }
+
+  .columns-split-media > div > .columns-split-media-text-col {
+    box-sizing: border-box;
+    padding: 2% 5% 0;
+  }
+
+  .columns-split-media .columns-split-media-text-col h2 {
+    font-size: 48px;
+    line-height: 1.125;
+  }
+
+  .columns-split-media .columns-split-media-text-col:has(.columns-split-media-icon-list) h2 {
+    font-size: 40px;
+  }
+
+  .columns-split-media .columns-split-media-icon {
+    margin-right: 20px;
+  }
+
+  .columns-split-media .columns-split-media-icon-body h3 {
+    font-size: 24px;
+  }
+
+  main .columns-split-media p.columns-split-media-cta > a:any-link,
+  main .columns-split-media p.columns-split-media-cta > :is(strong, em, b, i) > a:any-link {
+    min-width: 260px;
+    min-height: 64px;
+    border-radius: 35px;
+  }
+}

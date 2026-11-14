@@ -1,0 +1,739 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "checking-offer",
+      "urls": [
+        "https://promotions.bankofamerica.com/en/offers/chooseyourchecking500tiered",
+        "https://promotions.bankofamerica.com/en/offers/2026t3unauth",
+        "https://promotions.bankofamerica.com/es/offers/2026t3unauth"
+      ],
+      "representativeUrl": "https://promotions.bankofamerica.com/en/offers/chooseyourchecking500tiered",
+      "description": "Up to $500 tiered checking offer landing page (English and Spanish)",
+      "blocks": [
+        {
+          "name": "hero-offer",
+          "instances": [
+            "section.masthead",
+            ".masthead"
+          ]
+        },
+        {
+          "name": "cards-product",
+          "instances": [
+            ".product-details__productList"
+          ]
+        },
+        {
+          "name": "cards-steps",
+          "instances": [
+            ".multi-step-content__items:not(.last-qitem)",
+            ".multi-step-content__items.last-qitem"
+          ]
+        },
+        {
+          "name": "table-bonus",
+          "instances": [
+            ".multi-step-content table"
+          ]
+        },
+        {
+          "name": "columns-media-card",
+          "instances": [
+            ".uc-content-card-container .uc-card",
+            ".uc-card"
+          ]
+        },
+        {
+          "name": "table-bordered",
+          "instances": [
+            ".disclosures table"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Masthead hero",
+          "selector": [
+            ".aem-wrap--masthead",
+            "section.masthead"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-offer"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Advantage Banking product comparison",
+          "selector": [
+            ".aem-wrap--product-details",
+            ".product-details"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-product"
+          ],
+          "defaultContent": [
+            ".product-details__heading"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "How to qualify",
+          "selector": [
+            ".aem-wrap--multi-step-content",
+            ".multi-step-content"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-steps",
+            "table-bonus"
+          ],
+          "defaultContent": [
+            ".multi-step-content__heading",
+            ".multi-step-content__subcopy"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "BofA Rewards promo card",
+          "selector": [
+            ".aem-wrap--content-card-container",
+            ".uc-content-card-container"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media-card"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-5",
+          "name": "Offer disclosures (legal footnotes)",
+          "selector": [
+            ".disclosures"
+          ],
+          "style": "light-grey",
+          "blocks": [
+            "table-bordered"
+          ],
+          "defaultContent": [
+            ".disclosures__item"
+          ]
+        }
+      ],
+      "urlPattern": "/*/offers/*"
+    },
+    {
+      "name": "debit-card-overview",
+      "urls": [
+        "https://promotions.bankofamerica.com/deposits/debitcard/overview",
+        "https://promotions.bankofamerica.com/deposits/es/debitcard/overview"
+      ],
+      "representativeUrl": "https://promotions.bankofamerica.com/deposits/debitcard/overview",
+      "description": "Debit card overview product page (English and Spanish)",
+      "blocks": [
+        {
+          "name": "hero-offer",
+          "instances": [
+            "section.masthead",
+            ".masthead"
+          ]
+        },
+        {
+          "name": "cards-tile",
+          "instances": [
+            "section.features .features__items",
+            "section.tiles"
+          ]
+        },
+        {
+          "name": "columns-media-card",
+          "instances": [
+            "section.preferred-cards"
+          ]
+        },
+        {
+          "name": "columns-getapp",
+          "instances": [
+            ".getapp2"
+          ]
+        }
+      ],
+      "urlPattern": "/deposits/**/debitcard/overview",
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Masthead photo",
+          "selector": [
+            ".aem-wrap--masthead",
+            "section.masthead"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-offer"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Debit card security features",
+          "selector": [
+            ".aem-wrap--features",
+            "section.features"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-tile"
+          ],
+          "defaultContent": [
+            ".features__heading"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Activate, set up and spend band",
+          "selector": [
+            ".aem-wrap--long-form-text",
+            "section.long-form-text"
+          ],
+          "style": "red",
+          "blocks": [],
+          "defaultContent": [
+            ".long-form-text h2"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "Activate / Monitor / Pay tiles",
+          "selector": [
+            ".aem-wrap--long-form-text + .aem-wrap--tiles"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-tile"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-5",
+          "name": "Ways to PAY banner",
+          "selector": [
+            ".aem-wrap--tiles + .aem-wrap--content-banner"
+          ],
+          "style": "dark-blue",
+          "blocks": [],
+          "defaultContent": [
+            "uc-content-banner h2"
+          ]
+        },
+        {
+          "id": "section-6",
+          "name": "Enhanced Digital Card for Debit card",
+          "selector": [
+            ".aem-wrap--content-banner + .aem-wrap--preferred-cards"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media-card"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7",
+          "name": "Digital Wallet card",
+          "selector": [
+            ".aem-wrap--preferred-cards + .aem-wrap--preferred-cards"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media-card"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8",
+          "name": "Paze card",
+          "selector": [
+            ".aem-wrap--preferred-cards + .aem-wrap--preferred-cards + .aem-wrap--preferred-cards"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media-card"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-9",
+          "name": "Ways to SAVE banner",
+          "selector": [
+            ".aem-wrap--preferred-cards + .aem-wrap--content-banner"
+          ],
+          "style": "dark-blue",
+          "blocks": [],
+          "defaultContent": [
+            "uc-content-banner h2"
+          ]
+        },
+        {
+          "id": "section-10",
+          "name": "Save and rewards tiles",
+          "selector": [
+            ".aem-wrap--content-banner + .aem-wrap--tiles"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-tile"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-11",
+          "name": "Get the mobile app",
+          "selector": [
+            ".aem-wrap--mobile-app",
+            ".getapp2"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-getapp"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-12",
+          "name": "Disclosures (legal footnotes)",
+          "selector": [
+            ".disclosures"
+          ],
+          "style": "light-grey",
+          "blocks": [],
+          "defaultContent": [
+            ".disclosures__item"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "balance-connect",
+      "urls": [
+        "https://promotions.bankofamerica.com/deposits/balanceconnect",
+        "https://promotions.bankofamerica.com/es/deposits/balance-connect"
+      ],
+      "representativeUrl": "https://promotions.bankofamerica.com/deposits/balanceconnect",
+      "description": "Balance Connect overdraft protection product page (English and Spanish)",
+      "blocks": [
+        {
+          "name": "hero-offer",
+          "instances": [
+            "section.masthead",
+            ".masthead"
+          ]
+        },
+        {
+          "name": "columns-split-media",
+          "instances": [
+            ".content-tile"
+          ]
+        },
+        {
+          "name": "cards-icon-inline",
+          "instances": [
+            "section.features .features__items"
+          ]
+        }
+      ],
+      "urlPattern": "/**/balance*connect",
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Masthead",
+          "selector": [
+            ".aem-wrap--masthead",
+            "section.masthead"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-offer"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "How does Balance Connect work?",
+          "selector": [
+            ".aem-wrap--masthead + .aem-wrap--content-tile",
+            ".aem-wrap--content-tile:has(.content-tile__left)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-split-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "It's easy to enroll and manage",
+          "selector": [
+            ".aem-wrap--content-tile + .aem-wrap--content-tile",
+            ".aem-wrap--content-tile:has(.content-tile__right)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-split-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Don't wait, enroll banner",
+          "selector": [
+            ".aem-wrap--content-tile + .aem-wrap--cta-banner",
+            ".aem-wrap--cta-banner:has(.secondary-cta--flagscape-red)"
+          ],
+          "style": "dark-red, centered",
+          "blocks": [],
+          "defaultContent": [
+            ".secondary-cta h2",
+            ".secondary-cta a"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Don't have a backup account?",
+          "selector": [
+            ".aem-wrap--features",
+            "section.features"
+          ],
+          "style": "pale-grey, centered",
+          "blocks": [
+            "cards-icon-inline"
+          ],
+          "defaultContent": [
+            ".features__heading",
+            ".features__subHeading"
+          ]
+        },
+        {
+          "id": "section-6",
+          "name": "Looking for more information?",
+          "selector": [
+            ".aem-wrap--features + .aem-wrap--cta-banner",
+            ".aem-wrap--cta-banner:has(.secondary-cta--bg-white)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            ".secondary-cta h2",
+            ".secondary-cta a"
+          ]
+        },
+        {
+          "id": "section-7",
+          "name": "Disclosures (legal footnotes)",
+          "selector": [
+            ".disclosures"
+          ],
+          "style": "light-grey",
+          "blocks": [],
+          "defaultContent": [
+            ".disclosures__item"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "grow-your-savings",
+      "urls": [
+        "https://promotions.bankofamerica.com/deposits/growyoursavings",
+        "https://promotions.bankofamerica.com/es/deposits/growyoursavings"
+      ],
+      "representativeUrl": "https://promotions.bankofamerica.com/deposits/growyoursavings",
+      "description": "Grow Your Savings product page (English and Spanish)",
+      "blocks": [
+        {
+          "name": "hero-offer",
+          "instances": [
+            "section.masthead",
+            ".masthead"
+          ]
+        },
+        {
+          "name": "columns-split-media",
+          "instances": [
+            ".content-tile"
+          ]
+        },
+        {
+          "name": "cards-tile",
+          "instances": [
+            ".multi-step-content .newQualiwrapper"
+          ]
+        },
+        {
+          "name": "hero-offset-panel",
+          "instances": [
+            ".image-with-text-offset"
+          ]
+        }
+      ],
+      "urlPattern": "/**/deposits/growyoursavings",
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Masthead",
+          "selector": [
+            ".aem-wrap--masthead",
+            "section.masthead"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-offer"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Ways to waive the fee",
+          "selector": [
+            ".aem-wrap--content-tile:has(.content-tile__right)",
+            ".content-tile__right"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-split-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Start saving toward your goals",
+          "selector": [
+            ".aem-wrap--multi-step-content",
+            ".multi-step-content"
+          ],
+          "style": "centered",
+          "blocks": [
+            "cards-tile"
+          ],
+          "defaultContent": [
+            ".multi-step-content__heading"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "Ways to Save",
+          "selector": [
+            ".aem-wrap--content-tile:has(.content-tile__left)",
+            ".content-tile__left"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-split-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-5",
+          "name": "Better Money Habits",
+          "selector": [
+            ".aem-wrap--image-with-text-offset",
+            ".image-with-text-offset"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-offset-panel"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "FDIC insured band",
+          "selector": [
+            ".aem-wrap--long-form-text",
+            ".long-form-text"
+          ],
+          "style": "dark-blue, centered",
+          "blocks": [],
+          "defaultContent": [
+            ".long-form-text .text"
+          ]
+        },
+        {
+          "id": "section-7",
+          "name": "Disclosures (legal footnotes)",
+          "selector": [
+            ".disclosures"
+          ],
+          "style": "light-grey",
+          "blocks": [],
+          "defaultContent": [
+            ".disclosures__item"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cd-ira",
+      "urls": [
+        "https://promotions.bankofamerica.com/deposits/growyoursavings/cd-ira",
+        "https://promotions.bankofamerica.com/es/deposits/growyoursavings/cd-ira"
+      ],
+      "representativeUrl": "https://promotions.bankofamerica.com/deposits/growyoursavings/cd-ira",
+      "description": "CDs/IRAs product page (English and Spanish)",
+      "blocks": [
+        {
+          "name": "hero-offer",
+          "instances": [
+            "section.masthead",
+            ".masthead"
+          ]
+        },
+        {
+          "name": "cards-tile",
+          "instances": [
+            "section.features .features__items"
+          ]
+        },
+        {
+          "name": "columns-split-media",
+          "instances": [
+            ".content-tile"
+          ]
+        },
+        {
+          "name": "cards-product",
+          "instances": [
+            ".product-details__productList"
+          ]
+        },
+        {
+          "name": "table-bordered",
+          "instances": [
+            ".disclosures table",
+            ".disclosures ul.table"
+          ]
+        }
+      ],
+      "urlPattern": "/**/deposits/growyoursavings/cd-ira",
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Masthead",
+          "selector": [
+            ".experiencefragment:has(.aem-wrap--masthead)",
+            ".aem-wrap--masthead",
+            "section.masthead"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-offer"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "CDs and IRAs offer guaranteed rates",
+          "selector": [
+            ".experiencefragment:has(.aem-wrap--features)",
+            ".aem-wrap--features"
+          ],
+          "style": "pale-grey, centered",
+          "blocks": [
+            "cards-tile"
+          ],
+          "defaultContent": [
+            "section.features .features__heading"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Certificate of Deposit",
+          "selector": [
+            ".experiencefragment:has(.content-tile__left:not(.no-margin))",
+            ".content-tile__left:not(.no-margin)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-split-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Compare our CD Options",
+          "selector": [
+            ".experiencefragment:has(.aem-wrap--product-details)",
+            ".aem-wrap--product-details"
+          ],
+          "style": "centered",
+          "blocks": [
+            "cards-product"
+          ],
+          "defaultContent": [
+            ".product-details__heading"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Bank of America IRA",
+          "selector": [
+            ".experiencefragment:has(.content-tile__left.no-margin)",
+            ".content-tile__left.no-margin"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-split-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Merrill investment IRA",
+          "selector": [
+            ".experiencefragment:has(.aem-wrap--tiles)",
+            "#tiles"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            "#tiles"
+          ]
+        },
+        {
+          "id": "section-7",
+          "name": "Speak to an associate",
+          "selector": [
+            ".experiencefragment:has(.aem-wrap--cta-banner)",
+            ".aem-wrap--cta-banner"
+          ],
+          "style": "dark-red, centered",
+          "blocks": [],
+          "defaultContent": [
+            ".secondary-cta h2",
+            ".secondary-cta a"
+          ]
+        },
+        {
+          "id": "section-8",
+          "name": "Disclosures (legal footnotes)",
+          "selector": [
+            ".disclosures"
+          ],
+          "style": "light-grey",
+          "blocks": [
+            "table-bordered"
+          ],
+          "defaultContent": [
+            ".disclosures__item"
+          ]
+        }
+      ]
+    }
+  ]
+}

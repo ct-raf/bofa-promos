@@ -1,0 +1,31 @@
+{
+  "variantName": "cards-product",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "purpose": "Side-by-side product comparison cards for account offers",
+    "layout": "Equal-height outlined text cards; tinted header (title, eyebrow, intro, primary CTA) above a body whose feature lines are rule-separated. Horizontal scroll-snap carousel below 900px, grid above",
+    "notes": "Header/body split is the first <hr> in the cell if authored, otherwise right after the first link-only paragraph (the CTA). Body paragraphs after the next link-only paragraph get a rule each."
+  },
+  "contentPattern": {
+    "structure": "one row per card, one text cell: H3 title, eyebrow, intro, CTA link, fee, Learn more link, feature paragraphs. An optional picture-only cell adds a card image",
+    "rows": [
+      [
+        "H3 title, eyebrow, intro, CTA, fee, Learn more, features"
+      ]
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [
+    "cards-product"
+  ],
+  "usage": {
+    "description": "Product comparison of two to four accounts, each with a CTA and a feature list.",
+    "pagesUsing": [
+      "/deposits/growyoursavings/cd-ira"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-11-14"
+  },
+  "reuseGuidance": "Use for text-first product/plan comparison cards. For image-led cards use the base cards block."
+}

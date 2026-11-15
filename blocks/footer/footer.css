@@ -1,20 +1,192 @@
-footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+/*
+ * Footer — Bank of America promotions.
+ * Values measured from the source with getComputedStyle.
+ * Mobile (< 640px, the source's footer breakpoint): everything centered, 16px under the logo,
+ * copyright capped at 225px so it wraps onto two lines.
+ * From 640px: left-aligned; grey band (#ededed), padding 40px 5vw 20px (72px at 1440);
+ * logo 200x20 with 20px under it; legal links
+ * 14px/23.94px blue + underlined, navy without underline on hover; copyright; per-page legal
+ * code 14px/19.6px 28px below. "Advertising Practices" opens a 530px white modal (32px radius).
+ */
+
+footer .footer {
+  background-color: var(--brand-light-grey);
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer .footer .footer-band {
+  box-sizing: border-box;
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 40px 5vw 20px;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 19.6px;
+  color: var(--brand-black);
+  text-align: center;
 }
 
-footer .footer p {
+footer .footer .footer-band p {
   margin: 0;
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+footer .footer .footer-band p.footer-brand {
+  margin-bottom: 16px;
+}
+
+/* source: inline-block link around an inline 200x20 logo -> 26px line box */
+footer .footer .footer-brand a {
+  display: inline-block;
+  height: 26px;
+}
+
+footer .footer .footer-brand img {
+  display: inline;
+  width: 200px;
+  height: 20px;
+  vertical-align: baseline;
+}
+
+footer .footer .footer-legal,
+footer .footer .footer-copyright {
+  line-height: 23.94px;
+}
+
+footer .footer .footer-band p.footer-copyright {
+  max-width: 225px;
+  margin: 0 auto;
+}
+
+footer .footer .footer-band p.footer-code {
+  margin: 28px 0 20px;
+  line-height: 19.6px;
+}
+
+footer .footer a:any-link {
+  color: var(--brand-blue);
+  text-decoration: underline;
+}
+
+footer .footer a:any-link:hover,
+footer .footer a:any-link:focus-visible {
+  color: var(--brand-navy);
+  text-decoration: none;
+}
+
+/* decorative inline icons */
+footer .footer .footer-icon {
+  display: inline-block;
+  width: auto;
+  height: 14px;
+  vertical-align: -2px;
+}
+
+footer .footer .footer-icon-footer-lock {
+  width: 11px;
+  height: 11px;
+  margin: 0 2px;
+  vertical-align: -1px;
+}
+
+footer .footer .footer-icon-footer-privacy-choices {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+footer .footer .footer-icon-footer-equal-housing {
+  width: 14px;
+  height: 14px;
+  margin-left: 1px;
+  vertical-align: -2px;
+}
+
+/* modal dialog (e.g. Advertising Practices) */
+footer .footer .footer-dialog {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+  max-width: 530px;
+  max-height: calc(100dvh - 68px);
+  margin: 52px auto 16px;
+  padding: 60px 28px 28px;
+  overflow: auto;
+  border: 0;
+  border-radius: 32px;
+  background-color: var(--brand-white);
+  box-shadow: 0 0 48px 0 rgb(0 0 0 / 40%);
+  font-family: var(--body-font-family);
+  color: var(--brand-black);
+}
+
+footer .footer .footer-dialog::backdrop {
+  background-color: rgb(255 255 255 / 30%);
+  backdrop-filter: blur(8px);
+}
+
+footer .footer .footer-dialog-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 31px;
+  margin: 0;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--brand-black);
+  box-shadow: 0 0 16px 0 rgb(0 0 0 / 15%);
+  color: var(--brand-white);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+footer .footer .footer-dialog-close:hover,
+footer .footer .footer-dialog-close:focus-visible {
+  background-color: var(--brand-navy);
+}
+
+footer .footer .footer-dialog-body h2 {
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #c7c7c7;
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 36px;
+}
+
+footer .footer .footer-dialog-body p {
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 22.4px;
+}
+
+footer .footer .footer-dialog-body h2 + p {
+  margin-top: 22px;
+}
+
+/* breakpoint-exception: the source footer switches from centered to left-aligned at 640px (measured at 639/640) */
+@media (width >= 640px) {
+  footer .footer .footer-band {
+    text-align: left;
+  }
+
+  footer .footer .footer-band p.footer-brand {
+    margin-bottom: 20px;
+  }
+
+  footer .footer .footer-band p.footer-copyright {
+    max-width: none;
+    margin: 0;
+  }
+
+  footer .footer .footer-dialog {
+    max-height: calc(100dvh - 104px);
+    margin-top: 88px;
+    padding: 64px 34px 38px;
   }
 }

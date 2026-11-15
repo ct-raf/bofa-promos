@@ -1,0 +1,62 @@
+{
+  "$comment": "Per-page metadata added after import by apply-page-settings.mjs. nav: header menu document (default /nav). footer: footer document (default /footer). alternate: the same page in the other language (header language switch). legalCode: the page's legal ad code (MAP... | LP...), shown as the last footer line.",
+  "pages": {
+    "en/offers/chooseyourchecking500tiered": {
+      "alternate": "/es/offers/chooseyourchecking500tiered",
+      "legalCode": "MAP9028092-01222028 | LP-06-26-0055.A1"
+    },
+    "en/offers/2026t3unauth": {
+      "nav": "/nav-offer",
+      "alternate": "/es/offers/chooseyourchecking500tiered",
+      "legalCode": "MAP9028092-01222028 | LP-06-26-0055.A3"
+    },
+    "es/offers/chooseyourchecking500tiered": {
+      "nav": "/es/nav-offer",
+      "footer": "/es/footer",
+      "alternate": "/en/offers/chooseyourchecking500tiered",
+      "legalCode": "MAP9059524-02142028 | LP-06-26-0055.B"
+    },
+    "deposits/debitcard/overview": {
+      "nav": "/nav-debitcard",
+      "alternate": "/deposits/es/debitcard/overview",
+      "legalCode": "MAP8738362-08092027 | LP-01-26-2216.A"
+    },
+    "deposits/es/debitcard/overview": {
+      "nav": "/es/nav-debitcard",
+      "footer": "/es/footer",
+      "alternate": "/deposits/debitcard/overview",
+      "legalCode": "MAP8747554-08192027 | LP-01-26-2216.B"
+    },
+    "deposits/balanceconnect": {
+      "nav": "/nav-balanceconnect",
+      "alternate": "/es/deposits/balance-connect",
+      "legalCode": "MAP9036372-01292028 | LP-06-26-0023.A2"
+    },
+    "es/deposits/balance-connect": {
+      "nav": "/es/nav-balanceconnect",
+      "footer": "/es/footer",
+      "alternate": "/deposits/balanceconnect",
+      "legalCode": "MAP9089649-02262028 | LP-06-26-0023.B2"
+    },
+    "deposits/growyoursavings": {
+      "alternate": "/es/deposits/growyoursavings",
+      "legalCode": "MAP8880996-11062027 | LP-08-26-0253.A"
+    },
+    "es/deposits/growyoursavings": {
+      "nav": "/es/nav",
+      "footer": "/es/footer",
+      "alternate": "/deposits/growyoursavings",
+      "legalCode": "MAP8881037-11192027 | LP-08-26-0253.A1"
+    },
+    "deposits/growyoursavings/cd-ira": {
+      "alternate": "/es/deposits/growyoursavings/cd-ira",
+      "legalCode": "MAP8769624-08132027 | LP-08-26-0253.B"
+    },
+    "es/deposits/growyoursavings/cd-ira": {
+      "nav": "/es/nav",
+      "footer": "/es/footer",
+      "alternate": "/deposits/growyoursavings/cd-ira",
+      "legalCode": "MAP8759657-08172027 | LP-08-26-0253.B1"
+    }
+  }
+}

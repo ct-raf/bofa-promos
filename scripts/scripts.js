@@ -12,6 +12,7 @@ import {
   buildBlock,
   readBlockConfig,
   toClassName,
+  getMetadata,
   toCamelCase,
 } from './aem.js';
 
@@ -190,6 +191,9 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   // Spanish pages live under an /es/ path segment (e.g. /es/offers/…, /deposits/es/…)
   document.documentElement.lang = window.location.pathname.split('/').includes('es') ? 'es' : 'en';
+  // header variant (from the page's "nav" metadata) so styles.css can reserve its height (no CLS)
+  const navName = (getMetadata('nav') || '/nav').split('/').filter(Boolean).pop() || 'nav';
+  document.body.classList.add(`header-${toClassName(navName)}`);
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {

@@ -52,8 +52,30 @@ body.appear {
   display: block;
 }
 
+/* header height reserved per variant (body.header-<nav document>) so it doesn't shift the page */
 header {
   height: var(--nav-height);
+}
+
+/* debit card header stays fixed while scrolling, like the source */
+body.header-nav-debitcard header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+@media (width >= 900px) {
+  body {
+    --nav-height: 102.5px;
+  }
+
+  body.header-nav-balanceconnect {
+    --nav-height: 142.5px;
+  }
+
+  body.header-nav-offer {
+    --nav-height: 66px;
+  }
 }
 
 header .header,

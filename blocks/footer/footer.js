@@ -140,14 +140,19 @@ export default async function decorate(block) {
     band.append(p);
   });
 
-  // inline icons (images outside links) are decorative
+  // inline icons (images outside links) are decorative; their size comes from the image file.
+  // An icon that opens its line leads the text; any other icon trails the link before it.
   band.querySelectorAll('img').forEach((img) => {
     if (img.closest('a')) return;
-    img.classList.add('footer-icon');
+    const icon = img.closest('picture') || img;
+    let prev = icon.previousSibling;
+    while (prev && prev.nodeType === Node.TEXT_NODE && !prev.textContent.trim()) {
+      prev = prev.previousSibling;
+    }
+    const leads = !prev || prev.nodeName === 'BR';
+    img.classList.add('footer-icon', leads ? 'footer-icon-lead' : 'footer-icon-trail');
     img.setAttribute('aria-hidden', 'true');
     img.alt = '';
-    const name = (img.getAttribute('src') || '').split('/').pop().replace(/\.\w+(\?.*)?$/, '');
-    if (name) img.classList.add(`footer-icon-${name.replace(/[^\w-]/g, '')}`);
   });
 
   const links = [...band.querySelectorAll('a')];

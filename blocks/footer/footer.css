@@ -72,33 +72,22 @@ footer .footer a:any-link:focus-visible {
   text-decoration: none;
 }
 
-/* decorative inline icons */
+/* decorative inline icons: natural size from the image file (lock 11x12, privacy choices 20x20,
+   house 14x10); a leading icon sits 2px from the text, a trailing one ~5px after its link */
 footer .footer .footer-icon {
   display: inline-block;
   width: auto;
-  height: 14px;
-  vertical-align: -2px;
+  height: auto;
+  vertical-align: middle;
 }
 
-footer .footer .footer-icon-footer-lock {
-  width: 11px;
-  height: 11px;
+footer .footer .footer-icon-lead {
   margin: 0 2px;
   vertical-align: -1px;
 }
 
-footer .footer .footer-icon-footer-privacy-choices {
-  width: 20px;
-  height: 20px;
-  margin-left: 5px;
-  vertical-align: middle;
-}
-
-footer .footer .footer-icon-footer-equal-housing {
-  width: 14px;
-  height: 14px;
-  margin-left: 1px;
-  vertical-align: -2px;
+footer .footer .footer-icon-trail {
+  margin-left: 3px;
 }
 
 /* modal dialog (e.g. Advertising Practices) */
